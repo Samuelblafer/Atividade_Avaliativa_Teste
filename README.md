@@ -1,3 +1,58 @@
+# Atividade Avaliativa - Testes e API de Estoque
+
+Este repositório contém uma implementação simples de gerenciamento de estoque em `src/estoque.py`, testes unitários e funcionais, e agora inclui uma pequena API web (Flask) com testes de sistema HTTP.
+
+Resumo das alterações adicionadas para atender ao requisito do professor:
+
+- `src/app.py`: pequena API Flask com endpoints para adicionar, remover e verificar produtos.
+- `tests/system/test_estoque_system.py`: testes de sistema que exercitam a API via HTTP usando `requests`.
+- `src/__init__.py`: torna `src` um pacote importável durante a execução dos testes.
+- `tests/conftest.py`: ajusta `sys.path` para garantir que `src` seja importado corretamente pelo `pytest`.
+- Atualização em `requirements-dev.txt`: adição de `Flask` e `requests` para executar os testes de sistema.
+
+Como executar (PowerShell)
+
+1. Criar e ativar ambiente virtual:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+2. Instalar dependências de desenvolvimento:
+
+```powershell
+pip install -r requirements-dev.txt
+```
+
+3. Rodar a suíte de testes completa (unitários, funcionais, sistema):
+
+```powershell
+pytest -q
+```
+
+Observações sobre os testes de sistema
+
+- Os testes de sistema iniciam o servidor Flask em background (porta `5001`) e executam requisições HTTP contra os endpoints.
+- Caso precise executar a API manualmente para demonstração ao professor, rode:
+
+```powershell
+python -m src.app
+# ou
+python src\app.py
+```
+
+Arquivos principais
+
+- `src/estoque.py`: lógica do estoque (adicionar, remover, verificar) e exceção `ErroEstoque`.
+- `src/app.py`: API Flask com rotas `POST /produto`, `DELETE /produto`, `GET /produto/<nome>`.
+- `tests/unit/*`: testes unitários para a lógica interna.
+- `tests/functional/*`: testes funcionais que exercitam a classe `Estoque`.
+- `tests/system/*`: novos testes de sistema HTTP.
+
+Contato
+
+Se o professor quiser executar os testes ou ver a aplicação rodando e houver qualquer problema com dependências ou permissão de push, posso ajudar a ajustar ou fornecer um ambiente alternativo (por exemplo um link para Repl.it ou GitHub Codespaces).
 # Projeto de Teste Automatizado - Atividade Avaliativa 2
 # Projeto de Teste Automatizado - Atividade Avaliativa 2
 
