@@ -42,6 +42,33 @@ python -m src.app
 python src\app.py
 ```
 
+Testes de Interface (UI) com Playwright
+
+- Adicionei uma interface web simples em `src/templates/index.html` e `src/static/app.js` para demonstrar a aplicação no navegador.
+- Os testes de UI estão em `tests/system_ui/test_ui_playwright.py` e usam Playwright para abrir o navegador, interagir com a UI e verificar o comportamento.
+
+Como executar os testes de UI (requer instalação do Playwright e dos navegadores):
+
+1. Instale dependências:
+
+```powershell
+pip install -r requirements-dev.txt
+```
+
+2. Instale os navegadores do Playwright (apenas uma vez):
+
+```powershell
+python -m playwright install
+```
+
+3. Execute os testes (Playwright + pytest):
+
+```powershell
+pytest tests/system_ui -q
+```
+
+Observação: o download dos navegadores pode ser grande. Se o ambiente não permitir baixar os navegadores, execute somente os testes de API (os quais já estão presentes e passam).
+
 Arquivos principais
 
 - `src/estoque.py`: lógica do estoque (adicionar, remover, verificar) e exceção `ErroEstoque`.
