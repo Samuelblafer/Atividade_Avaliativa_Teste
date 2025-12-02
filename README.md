@@ -69,6 +69,29 @@ pytest tests/system_ui -q
 
 Observação: o download dos navegadores pode ser grande. Se o ambiente não permitir baixar os navegadores, execute somente os testes de API (os quais já estão presentes e passam).
 
+Testes UI com Selenium
+
+- Se o professor preferir Selenium (WebDriver), adicionei testes em `tests/system_ui_selenium/test_ui_selenium.py`.
+- Esses testes usam `webdriver-manager` para baixar automaticamente o driver do Chrome (requer que o Google Chrome esteja instalado no sistema e que a rede permita o download do driver).
+
+Como executar os testes Selenium:
+
+1. Instale dependências:
+
+```powershell
+pip install -r requirements-dev.txt
+```
+
+2. Rode os testes Selenium (usa ChromeDriver via webdriver-manager):
+
+```powershell
+pytest tests/system_ui_selenium -q
+```
+
+Observações:
+- O `webdriver-manager` baixa e instala o `chromedriver` automaticamente. O Chrome deve estar presente no computador do avaliador.
+- Caso a instituição exija outro navegador (Firefox), eu posso adaptar o teste para `GeckoDriver`/Firefox.
+
 Arquivos principais
 
 - `src/estoque.py`: lógica do estoque (adicionar, remover, verificar) e exceção `ErroEstoque`.
